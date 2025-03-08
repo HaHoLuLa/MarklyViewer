@@ -1,16 +1,18 @@
 import { EditorContent, useEditor } from "@tiptap/react"
 import { extensions } from "../utils/extensions"
-import { useParams } from "react-router"
-import { decompressFromEncodedURIComponent } from "lz-string"
+// import { useParams } from "react-router"
+// import { decompressFromEncodedURIComponent } from "lz-string"
 import { ChangeEvent } from "react"
 
 export default function Index() {
-  const { content } = useParams()
-  const contentJson = JSON.parse(decompressFromEncodedURIComponent(content || ""))
+  // const { content } = useParams()
 
   const editor = useEditor({
     extensions: extensions,
-    content: contentJson,
+    content: `
+    <h1>Markly Viewer</h1>
+    <p>Add to Markly file (<code>.memo</code> or <code>.mky</code>) to view</p>
+    `,
     editable: false
   })
 
@@ -40,7 +42,7 @@ export default function Index() {
 
   return (
     <>
-      <label htmlFor="file" style={{ position: "fixed", bottom: "1rem", right: "1rem", padding: "0.5rem", cursor: "pointer", width: "2rem", height: "2rem", borderRadius: "50%", backgroundColor: "var(--color-primary)", color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <label htmlFor="file" style={{ position: "fixed", bottom: "1rem", right: "1rem", padding: "0.5rem", cursor: "pointer", width: "2rem", height: "2rem", borderRadius: "50%", backgroundColor: "var(--color-primary)", color: "white", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000 }}>
         <span style={{ fontSize: "1.5rem" }}>+</span>
       </label>
       <input id="file" type="file" accept=".memo, .mky" onChange={fileChange} style={{ display: "none" }} />

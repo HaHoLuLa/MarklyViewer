@@ -107,7 +107,7 @@ tr:nth-child(even) {
 
 .draw svg {
   background: #f1f3f5;
-  cursor: crosshair;
+  /* cursor: crosshair; */
   border-radius: 0.5rem;
 }
 
