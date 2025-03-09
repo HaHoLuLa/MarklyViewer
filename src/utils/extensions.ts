@@ -10,7 +10,7 @@ import OrderedList from "@tiptap/extension-ordered-list";
 import Paragraph from "@tiptap/extension-paragraph";
 import Placeholder from "@tiptap/extension-placeholder";
 import Subscript from "@tiptap/extension-subscript";
-import Table from "@tiptap/extension-table";
+// import Table from "@tiptap/extension-table";
 import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 import TaskItem from "@tiptap/extension-task-item";
@@ -48,6 +48,7 @@ import CustomHighlight from "./extends/CustomHighlight";
 import Gapcursor from "@tiptap/extension-gapcursor";
 import CustomDocument from "./extends/CustomDocument";
 import Canvas from "./extends/Canvas";
+import { CustomTable } from "./extends/CustomTable";
 
 const lowlight = createLowlight(all);
 lowlight.register("css", css);
@@ -111,7 +112,8 @@ export const extensions = [
     },
   }),
   Subscript,
-  Table.configure({
+  // Table.configure({
+  CustomTable.configure({
     resizable: true,
     allowTableNodeSelection: true,
   }),
